@@ -1,0 +1,24 @@
+{
+  "name": "atom-selectors-plus",
+  "version": "0.0.9",
+  "description": "An Atom selectors.js based selector utility with extra features",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apercova/atom-selectors-plus.git"
+  },
+  "keywords": [
+    "atom",
+    "selectors",
+    "atom-selectors-plus"
+  ],
+  "author": "@percova",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apercova/atom-selectors-plus/issues"
+  },
+  "homepage": "https://github.com/apercova/atom-selectors-plus#readme"
+}
