@@ -1,6 +1,6 @@
 {
   "name": "atom-selectors-plus",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An Atom selectors.js based selector utility with extra features",
   "main": "lib/index.js",
   "scripts": {
