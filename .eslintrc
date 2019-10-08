@@ -1,0 +1,60 @@
+{
+  "env": {
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "impliedStrict": false,
+      "jsx": false,
+      "globalReturn": false
+    }
+  },
+  "globals": {
+    "escape": false,
+    "atob": false,
+    "btoa": false,
+    "require": false
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "rules": {
+    "complexity": [
+      "off",
+      6
+    ],
+    "valid-jsdoc": "warn",
+    "quotes": [
+      2,
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "no-unused-vars": "off",
+    "for-direction": "warn",
+    "getter-return": "warn",
+    "no-extra-parens": "warn",
+    "no-extra-label": "warn",
+    "no-multi-spaces": "warn",
+    "no-unused-labels": "warn",
+    "eqeqeq": [
+      "warn",
+      "always"
+    ],
+    "no-alert": "warn",
+    "no-console": "warn",
+    "no-mixed-spaces-and-tabs": "warn",
+    "semi": "warn",
+    "no-eq-null": "error",
+    "no-implicit-globals": "error",
+    "no-multi-str": "error",
+    "no-undef-init": "error",
+    "no-undefined": "error",
+    "no-use-before-define": "error",
+    "consistent-return": "error",
+    "no-useless-return": "error"
+  }
+}
