@@ -3,7 +3,7 @@ An [Atom selectors.js](https://github.com/atom/atom/blob/master/src/selectors.js
 
 ## Features  
 - Added functionality to validate Atom's ScopeSelector as [ScopeSelector](https://flight-manual.atom.io/behind-atom/sections/scoped-settings-scopes-and-scope-descriptors/#scope-selectors)  
-  By default Atom's selectors.js `selectorMatchesAnyScope(selector, scopes)` validates only individual scopes. Eg. `.source.js .string.quoted`.
+  By default Atom's selectors.js `selectorMatchesAnyScope(selector, scopes)` validates only individual scopes. Eg. `.source.js` or `.string.quoted`.
 
   > For above example `.source.js` and `.string.quoted` are evaluated independently. Hence, nested selectors like `.source.js .string` evaluate to `false` which is a bit missleading if you expect to evaluate `ScopeSelector` included `*` selector.
   
