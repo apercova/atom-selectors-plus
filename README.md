@@ -10,68 +10,55 @@ An [Atom selectors.js](https://github.com/atom/atom/blob/master/src/selectors.js
   > Following is a comparison between `selectorMatchesAnyScope(selector, scopes)` and `selectorMatchesAllScopes(selector, scopes)` functions: 
   
   ```bash
-  ScopeChain    => '.source.js .string.quoted'
-  Scopes        => [source.js,string.quoted]
+  ScopeChain => .source.js .string.quoted.template
+  scopes     => [source.js,string.quoted.template]
 
   ============================================================
-  Testing selectorMatchesAnyScope(selector, scopes)
+  Testing anySelectorMatchAnyScope(selector, scopes) function 
+
+  selector: [*, .text.plain]                                      => true
+  selector: [.source, .text.plain]                                => true
+  selector: [.source.js, .text.plain]                             => true
+  selector: [.string.quoted, .text.plain]                         => true
+  selector: [.source.js .string.quoted, .text.plain]              => true
+  selector: [.xml.source .string.quoted.template, .text.plain]    => true
+  selector: [.source .number, .text.plain]                        => true
+  selector: [.source.js .number, .text.plain]                     => true
+  selector: [.source.js .number, .text.plain, .source.js .string] => true
   ============================================================
 
-   selector: [*]                         => false
-   selector: [.source.js]                => true
-   selector: [.string.quoted]            => true
-   selector: [.source.js .string.quoted] => false
-   selector: [.source .string]           => false
-   selector: [.source .quoted]           => false
-   selector: [.source .string.quoted]    => false
-   selector: [.source .quoted.string]    => false
-   selector: [.js .string]               => false
-   selector: [.js .quoted]               => false
-   selector: [.js .string.quoted]        => false
-   selector: [.js .quoted.string]        => false
-   selector: [.source.js .string]        => false
-   selector: [.source.js .quoted]        => false
-   selector: [.source.js .string.quoted] => false
-   selector: [.source.js .quoted.string] => false
-   selector: [.js .string]               => false
-   selector: [.js.source .string]        => false
-   selector: [.js.source .quoted]        => false
-   selector: [.js.source .string.quoted] => false
-   selector: [.js.source.string]         => false
-   selector: [.js.source.quoted]         => false
-   selector: [.js.string.quoted]         => false
-   selector: [.js.source.string.quoted]  => false
-  ```
-  ```bash
   ============================================================
-  Testing selectorMatchesAnyScopes(selector, scopes)
-  ============================================================
+  Testing anySelectorMatchAllScopes(selector, scopes) function 
 
-   selector: [*]                         => true
-   selector: [.source.js]                => true
-   selector: [.string.quoted]            => true
-   selector: [.source.js .string.quoted] => true
-   selector: [.source .string]           => true
-   selector: [.source .quoted]           => true
-   selector: [.source .string.quoted]    => true
-   selector: [.source .quoted.string]    => true
-   selector: [.js .string]               => true
-   selector: [.js .quoted]               => true
-   selector: [.js .string.quoted]        => true
-   selector: [.js .quoted.string]        => true
-   selector: [.source.js .string]        => true
-   selector: [.source.js .quoted]        => true
-   selector: [.source.js .string.quoted] => true
-   selector: [.source.js .quoted.string] => true
-   selector: [.js .string]               => true
-   selector: [.js.source .string]        => true
-   selector: [.js.source .quoted]        => true
-   selector: [.js.source .string.quoted] => true
-   selector: [.js.source.string]         => false # False as it's not a valid class selector for ScopeChain
-   selector: [.js.source.quoted]         => false # False as it's not a valid class selector for ScopeChain
-   selector: [.js.string.quoted]         => false # False as it's not a valid class selector for ScopeChain
-   selector: [.js.source.string.quoted]  => false # False as it's not a valid class selector for ScopeChain
+  selector: [*, .text.plain]                                      => true
+  selector: [.source, .text.plain]                                => true
+  selector: [.source.js, .text.plain]                             => true
+  selector: [.string.quoted, .text.plain]                         => true
+  selector: [.source.js .string.quoted, .text.plain]              => true
+  selector: [.xml.source .string.quoted.template, .text.plain]    => false # False as it's not a valid class selector for ScopeChain
+  selector: [.source .number, .text.plain]                        => false # False as it's not a valid class selector for ScopeChain
+  selector: [.source.js .number, .text.plain]                     => false # False as it's not a valid class selector for ScopeChain
+  selector: [.source.js .number, .text.plain, .source.js .string] => true
   ============================================================
+  
+  ============================================================
+  Testing selectorMatchesAnyScope VS selectorMatchesAllScopes
+
+  scopeChain => '.source.js'
+  selector   => '.source.js .string.quoted'
+
+  selectorMatchesAnyScope(selector, scopeChain)   => true  // '.source.js' token matches scope chain
+  selectorMatchesAllScopes(selector, scopeChain)  => false // No selector matches any scope. '.source.js .string.quoted selector' is more
+
+
+  ============================================================
+  Testing selectorMatchesAnyScope VS selectorMatchesAllScopes
+
+  scopeChain => '.source.js'
+  selector   => '.source.js .string.quoted, .text.plain';
+
+  anySelectorMatchAnyScope(selector, scopeChain)   => true  // '.source.js' token matches scope chain 
+  anySelectorMatchAllScopes(selector, scopeChain)  => false // No selector matches any scope. '.source.js .string.quoted selector' is more specifyc)
   ```
 - Removed dependency with underscore-plus's `isSubset()` function implemented in the scipt as:  
 ```javascript
