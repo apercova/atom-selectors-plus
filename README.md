@@ -98,3 +98,7 @@ An Atom selector library based on [Atom](https://github.com/atom/atom)'s [select
             .length === subset.length;
   }
 ```
+
+### Acknowledgements
+- Scope selectors matching features are based on [`Atom`](https://github.com/atom) [`selectors.js`](https://github.com/atom/atom/blob/master/src/selectors.js).
+- Scope selectors cache is based on [`autocomplete-plus`](https://github.com/atom/autocomplete-plus) [`scope-helpers.js`](https://github.com/atom/autocomplete-plus/blob/master/lib/scope-helpers.js).  
