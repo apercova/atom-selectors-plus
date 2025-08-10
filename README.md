@@ -1,3 +1,10 @@
+## :loudspeaker: Deprecation notice :broken_heart:
+
+`atom-selectors-plus` development has been stopped since [github has now ended Atom IDE development](https://github.blog/2022-06-08-sunsetting-atom/).  
+This repo will continue to be available though no further support will be done.  
+I want to say thanks to all of you who gave this a try and a special shout out to contributors.  
+
+-----
 # atom-selectors-plus
 An Atom selector library based on [Atom](https://github.com/atom/atom)'s [selectors.js](https://github.com/atom/atom/blob/master/src/selectors.js) script with extra features :muscle: :point_left:
 
